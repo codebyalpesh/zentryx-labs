@@ -1,0 +1,27 @@
+/* BASE */
+
+@import url('./base/variables.css');
+@import url('./base/reset.css');
+@import url('./base/base.css');
+@import url('./base/typography.css');
+
+/* COMPONENT */
+
+@import url('./component/component.css');
+
+/* LAYOUT */
+
+@import url('./layout/header.css');
+@import url('./layout/footer.css');
+
+/* SECTION */
+
+@import url('./section/hero.css');
+@import url('./section/stats.css');
+@import url('./section/analytics.css');
+@import url('./section/ai-viz.css');
+@import url('./section/insights.css');
+@import url('./section/feature.css');
+@import url('./section/how.css');
+@import url('./section/platform.css');
+@import url('./section/cta.css');

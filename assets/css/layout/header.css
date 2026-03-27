@@ -1,0 +1,202 @@
+/* ================= NAVBAR BASE ================= */
+
+.header {
+  background: rgba(11, 15, 26, 0.72);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--color-border);
+  z-index: var(--z-sticky);
+  transition: var(--transition-base);
+}
+
+.header.scrolled {
+  background: rgba(11, 15, 26, 0.92);
+  border-bottom: 1px solid var(--color-border-hover);
+}
+
+.navbar {
+  padding: var(--space-3) 0;
+}
+
+/* ================= BRAND ================= */
+
+.navbar-brand {
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  letter-spacing: 0.6px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  transition: var(--transition-fast);
+}
+
+.navbar-brand:hover {
+  color: var(--color-primary);
+}
+
+.brand-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  box-shadow: 0 0 14px var(--color-primary);
+}
+
+/* ================= NAV LINKS ================= */
+
+.navbar-nav {
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.navbar-nav .nav-link {
+  color: var(--color-text-muted);
+  font-weight: var(--font-medium);
+  font-size: var(--text-sm);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  position: relative;
+  transition: var(--transition-fast);
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--color-text);
+  background: var(--color-surface-1);
+}
+
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 3px;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 2px;
+  background: var(--color-primary);
+  border-radius: var(--radius-full);
+  transition: var(--transition-base);
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 60%;
+}
+
+/* active */
+.navbar-nav .nav-link.active {
+  color: var(--color-text);
+}
+
+.navbar-nav .nav-link.active::after {
+  width: 60%;
+}
+
+/* ================= CTA BUTTON ================= */
+
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  border: none;
+  color: var(--gray-900);
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-full);
+  font-weight: var(--font-semibold);
+  transition: var(--transition-base);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* shine effect */
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+/* ================= CUSTOM NAVBAR TOGGLER (NEW PREMIUM DESIGN) ================= */
+
+.custom-toggler {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  transition: var(--transition-base);
+  backdrop-filter: blur(10px);
+}
+
+.custom-toggler:hover {
+  border-color: var(--color-border-hover);
+  background: var(--color-surface-2);
+  transform: translateY(-1px);
+}
+
+.toggler-line {
+  width: 18px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: var(--radius-full);
+  transition: var(--transition-base);
+}
+
+/* OPEN STATE ANIMATION (Bootstrap adds .collapsed handling indirectly via aria-expanded) */
+.custom-toggler[aria-expanded="true"] .toggler-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.custom-toggler[aria-expanded="true"] .toggler-line:nth-child(2) {
+  opacity: 0;
+}
+
+.custom-toggler[aria-expanded="true"] .toggler-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ================= MOBILE MENU ================= */
+
+@media (max-width: 992px) {
+  .navbar-nav {
+    margin-top: var(--space-4);
+    padding: var(--space-3);
+    background: var(--color-surface-1);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(16px);
+  }
+
+  .btn-primary {
+    width: 100%;
+    margin-top: var(--space-3);
+  }
+}

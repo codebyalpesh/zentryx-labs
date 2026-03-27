@@ -1,0 +1,205 @@
+/* ================= PLATFORM SECTION ================= */
+
+.platform-section {
+  padding: var(--space-24) 0;
+}
+
+/* ================= DASHBOARD WRAPPER ================= */
+
+.dashboard-preview {
+  margin-top: var(--space-10);
+}
+
+/* ================= MAIN CARD ================= */
+
+.dash-main {
+  background: linear-gradient(
+    145deg,
+    var(--color-surface-1),
+    var(--color-surface-2)
+  );
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  backdrop-filter: blur(18px);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+/* glow border effect */
+.dash-main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top left,
+    rgba(16, 185, 129, 0.12),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.dash-main:hover::before {
+  opacity: 1;
+}
+
+/* ================= HEADER ================= */
+
+.dash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-6);
+}
+
+.dash-header h5 {
+  color: var(--color-text);
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  margin-bottom: 4px;
+}
+
+.dash-header small {
+  color: var(--color-text-muted);
+}
+
+/* live badge */
+.live-badge {
+  font-size: var(--text-xs);
+  padding: 6px 10px;
+  border-radius: var(--radius-md);
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--color-primary);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  animation: pulseLive 1.8s infinite;
+}
+
+@keyframes pulseLive {
+  0% { box-shadow: 0 0 0 0 rgba(16,185,129,0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(16,185,129,0); }
+  100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
+}
+
+/* ================= CHART AREA ================= */
+
+.chart-area {
+  height: 260px;
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    rgba(16,185,129,0.04),
+    rgba(99,102,241,0.04)
+  );
+  border: 1px solid var(--color-border);
+}
+
+/* grid overlay */
+.chart-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.4;
+}
+
+/* glow layer */
+.chart-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(16,185,129,0.08),
+    transparent 70%
+  );
+}
+
+/* animated signal line */
+.chart-line-animation {
+  position: absolute;
+  width: 200%;
+  height: 2px;
+  top: 50%;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    transparent,
+    var(--color-primary)
+  );
+  animation: moveLine 3.5s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes moveLine {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(50%); }
+}
+
+/* ================= STATS ================= */
+
+.dash-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+
+/* KPI CARD */
+.stat-box {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* hover glow */
+.stat-box:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+/* text */
+.stat-box h6 {
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  margin-bottom: var(--space-2);
+}
+
+.stat-box h3 {
+  color: var(--color-primary);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  margin-bottom: 4px;
+}
+
+/* KPI labels */
+.stat-box p {
+  font-size: var(--text-xs);
+  margin: 0;
+}
+
+.up { color: #22c55e; }
+.info { color: #38bdf8; }
+.muted { color: var(--color-text-muted); }
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+  .dash-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .dash-header {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+}

@@ -1,0 +1,35 @@
+/* =========================================================
+base.css
+Global Base Styles
+========================================================= */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: var(--text-base);
+    line-height: var(--line-base);
+    background: var(--color-bg);
+    color: var(--color-text);
+    padding-top: 65px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition-base);
+}
+
+a:hover {
+    color: var(--color-primary);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+    cursor: pointer;
+}

@@ -1,0 +1,130 @@
+/* =========================================================
+typography.css
+Text System 
+========================================================= */
+
+
+/* =====================================================
+   HEADINGS SYSTEM
+===================================================== */
+h1 {
+  font-size: var(--text-4xl);
+  line-height: var(--line-4xl);
+  font-weight: var(--font-bold);
+}
+
+h2 {
+  font-size: var(--text-3xl);
+  line-height: var(--line-3xl);
+  font-weight: var(--font-bold);
+}
+
+h3 {
+  font-size: var(--text-2xl);
+  line-height: var(--line-2xl);
+  font-weight: var(--font-medium);
+}
+
+h4 {
+  font-size: var(--text-xl);
+  line-height: var(--line-xl);
+  font-weight: var(--font-medium);
+}
+
+h5 {
+  font-size: var(--text-lg);
+  line-height: var(--line-lg);
+  font-weight: var(--font-regular);
+}
+
+h6 {
+  font-size: var(--text-md);
+  line-height: var(--line-md);
+  font-weight: var(--font-regular);
+}
+
+
+/* =====================================================
+   ✍️ BODY TEXT SYSTEM
+===================================================== */
+p {
+  font-size: var(--text-base);
+  line-height: var(--line-base);
+  font-weight: var(--font-regular);
+}
+
+small {
+  font-size: var(--text-sm);
+  line-height: var(--line-sm);
+}
+
+
+/* =====================================================
+   TEXT UTILITIES
+===================================================== */
+.text-center {
+  text-align: center;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-break {
+  word-break: break-word;
+}
+
+
+/* =====================================================
+   TEXT WEIGHT UTILITIES
+===================================================== */
+.text-light {
+  font-weight: var(--font-light);
+}
+
+.text-regular {
+  font-weight: var(--font-regular);
+}
+
+.text-medium {
+  font-weight: var(--font-medium);
+}
+
+.text-bold {
+  font-weight: var(--font-bold);
+}
+
+
+/* =====================================================
+   TEXT COLOR HELPERS (OPTIONAL SAFE USAGE)
+===================================================== */
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.text-disabled {
+  color: var(--color-text-disabled);
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-success {
+  color: var(--color-success);
+}
+
+.text-warning {
+  color: var(--color-warning);
+}
+
+.text-error {
+  color: var(--color-error);
+}

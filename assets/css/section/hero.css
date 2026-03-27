@@ -1,0 +1,204 @@
+/* ================= HERO PRO MAX ================= */
+
+.hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: var(--space-32) 0;
+}
+
+/* ================= GRID ================= */
+
+.grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 70px 70px;
+    opacity: 0.12;
+    mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+}
+
+/* ================= MAIN GLOW ================= */
+
+.hero-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at center,
+        rgba(34, 211, 238, 0.18),
+        rgba(139, 92, 246, 0.12),
+        transparent 65%
+    );
+    filter: blur(20px);
+    animation: glowPulse 8s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+/* ================= PARALLAX LAYER ================= */
+
+.hero-parallax {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(34,211,238,0.25), transparent 70%);
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: blur(40px);
+    pointer-events: none;
+    transition: transform 0.2s ease;
+}
+
+/* ================= KPI FLOATING CARDS ================= */
+
+.hero-kpis {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.kpi-card {
+    position: absolute;
+    padding: var(--space-4);
+    background: var(--color-surface-1);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(14px);
+    box-shadow: var(--shadow-md);
+    min-width: 160px;
+    animation: floatCard 6s ease-in-out infinite;
+    transition: var(--transition-base);
+}
+
+.kpi-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    border-color: var(--color-border-hover);
+}
+
+/* positioning */
+.kpi-card:nth-child(1) {
+    top: 18%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.kpi-card:nth-child(2) {
+    top: 60%;
+    right: 8%;
+    animation-delay: 1.5s;
+}
+
+.kpi-card:nth-child(3) {
+    bottom: 15%;
+    left: 15%;
+    animation-delay: 3s;
+}
+
+/* float animation */
+@keyframes floatCard {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* KPI text */
+.kpi-label {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+}
+
+.kpi-card h3 {
+    font-size: var(--text-xl);
+    color: var(--color-text);
+    margin-top: var(--space-1);
+}
+
+/* ================= HERO CONTENT ================= */
+
+.hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, var(--text-4xl));
+    font-weight: var(--font-bold);
+    line-height: 1.1;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+}
+
+.hero-title span {
+    background: linear-gradient(
+        135deg,
+        var(--color-primary),
+        var(--color-secondary)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    color: var(--color-text-muted);
+    margin-top: var(--space-4);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ================= CTA ================= */
+
+.hero-actions {
+    margin-top: var(--space-8);
+}
+
+.hero-btn-secondary {
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    background: transparent;
+}
+
+.hero-btn-secondary:hover {
+    background: var(--color-surface-1);
+    transform: translateY(-2px);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+    .hero-kpis {
+        display: none; /* clean mobile UX */
+    }
+
+    .hero-parallax {
+        display: none;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+}
